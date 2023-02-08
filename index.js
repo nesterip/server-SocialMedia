@@ -39,9 +39,9 @@ mongoose.set('strictQuery', false);
 //recordar que colocar la contraseña del cluster en mongodb= :(hola.123)@
 //tambien poner el nombre del proyecto despues de .net/ y antes de ?
 mongoose.connect(process.env.MONGO_DB, {useNewUrlParser: true, useUnifiedTopology: true})
-.then(() => app.listen(process.env.PORT, ))
+.then(() => app.listen(process.env.PORT, () => console.log(`listening at port ${5000}`)))
 .catch((error) => console.log(error));
-//() => console.log(`listening at port ${process.env.PORT}`)
+
 
 
 //aqui estamos conectando con el AuthRoute para hacer el manejo de las rutas
