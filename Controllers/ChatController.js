@@ -58,6 +58,7 @@ export const findChat = async(req,res) => {
     }
 }
 
+//Remover Chat
 export const removeChat = async(req, res) => {
     const chatId = req.params.id;
 

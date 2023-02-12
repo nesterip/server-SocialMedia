@@ -1,5 +1,6 @@
 import MessageModel from '../Models/messageModel.js';
 
+//Añadir mensajes a un chat
 export const addMessage = async(req, res) => {
     const {chatId, senderId, text} = req.body;
 
@@ -17,6 +18,7 @@ export const addMessage = async(req, res) => {
     }
 };
 
+//obteniendo los mensajes de un chat
 export const getMessages = async(req, res) => {
     const {chatId} = req.params;
 

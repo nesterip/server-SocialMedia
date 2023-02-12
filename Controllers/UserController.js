@@ -1,6 +1,6 @@
 import UserModel from "../Models/userModel.js";
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+//import jwt from 'jsonwebtoken';
 
 
 //get all users
@@ -80,11 +80,11 @@ export const updateUser = async (req, res) => {
             //manera hara el update, solo que devolvera los datos antiguos
             const user = await UserModel.findByIdAndUpdate(id, req.body, {new: true,});
 
-        const token = jwt.sign(
-            { username: user.username, id: user._id }, process.env.JWT_KEY, { expiresIn: "1h" }
-        );
+        // const token = jwt.sign(
+        //     { username: user.username, id: user._id }, process.env.JWT_KEY, { expiresIn: "1h" }
+        // );
     
-        res.status(200).json({user, token});
+        res.status(200).json({user});
         } catch (error) {
             res.status(500).json(error);
         }

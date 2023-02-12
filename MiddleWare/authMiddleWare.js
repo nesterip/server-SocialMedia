@@ -1,7 +1,7 @@
-import jwt from 'jsonwebtoken';
+//import jwt from 'jsonwebtoken';
 
 //en el lado del server para poder usar el procces.env es necesario importarlo
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 
 dotenv.config();
 const secret = process.env.JWT_KEY;
@@ -33,4 +33,4 @@ const authMiddleWare = async(req, res, next) => {
     }
 }
 
-export default authMiddleWare;
+//export default authMiddleWare;

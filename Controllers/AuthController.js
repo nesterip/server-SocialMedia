@@ -1,6 +1,6 @@
 import UserModel from "../Models/userModel.js";
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+//import jwt from 'jsonwebtoken';
 
 /*  
     este controler se encargra de procesar los regitros e inicios de 
@@ -37,11 +37,11 @@ export const registerUser = async(req, res) =>{
         const user = await newUser.save();
 
         //aqui estamos generando un token para el user que se acaba de registrar
-        const token = jwt.sign({
-            username: user.username, id: user._id
-        }, process.env.JWT_KEY, {expiresIn: '1h'});
+        // const token = jwt.sign({
+        //     username: user.username, id: user._id
+        // }, process.env.JWT_KEY, {expiresIn: '1h'});
 
-        res.status(200).json({user, token});
+        res.status(200).json({user});
     } catch (error) {
         res.status(500).json({message: error.message});
     }
@@ -67,11 +67,11 @@ export const loginUser = async(req, res) => {
                 res.status(400).json("Contraseña incorrecta");
             }
             else{
-                const token = jwt.sign({
-                    username: user.username, id: user._id
-                }, process.env.JWT_KEY, {expiresIn: '1h'});
+                // const token = jwt.sign({
+                //     username: user.username, id: user._id
+                // }, process.env.JWT_KEY, {expiresIn: '1h'});
 
-                res.status(200).json({user, token});
+                res.status(200).json({user});
             }
         }else{
             res.status(404).json("El usuario no existe");
